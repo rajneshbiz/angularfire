@@ -5,6 +5,7 @@ import { connectFunctionsEmulator, FunctionsModule, getFunctions, provideFunctio
 import { connectFirestoreEmulator, getFirestore, provideFirestore, enableMultiTabIndexedDbPersistence } from '@angular/fire/firestore';
 import { connectDatabaseEmulator, getDatabase, provideDatabase } from '@angular/fire/database';
 import { connectStorageEmulator, getStorage, provideStorage } from '@angular/fire/storage';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ export const persistenceEnabled = new Promise<boolean>(resolve => {
     AppRoutingModule,
     FunctionsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
     provideFirestore(() => {
       const firestore = getFirestore();
       if (environment.useEmulators) {
