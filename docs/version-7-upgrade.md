@@ -218,6 +218,9 @@ collection<T>(docRef, 'bar') // CollectionReference<T>
 ```ts
 import { docSnapshots } from '@angular/fire/firestore';
 docSnapshots<T>(docRef) // Observable<DocumentSnapshot<T>>
+
+import { collectionSnapshots } from '@angular/fire/firestore';
+collectionSnapshots<T>(docRef) // Observable<QueryDocumentSnapshot<T>[]>
 ```
 </td>
 
